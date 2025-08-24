@@ -1,0 +1,41 @@
+.homepage-container {
+  padding: 20px;
+  font-family: 'Montserrat', sans-serif;
+  color: #cac8c8;
+}
+
+.homepage-container h1 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.homepage-container h2 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.daylight-map {
+  max-width: 100%;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  margin-bottom: 5px;
+}
+
+.daylight-map{
+  font-size: 0.8rem;
+  color: #888;
+  margin-top: 15px;
+  margin-bottom: 20px;
+}
+
+.daylight-section {
+    text-align: center;
+}

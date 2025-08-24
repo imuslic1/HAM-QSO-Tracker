@@ -24,7 +24,7 @@
 
 .search-input:focus {
     outline: none;
-    border-color: #038046;
+    border-color: #499773;
     box-shadow: 0 0 5px rgba(75, 68, 68, 0.5);
     border-radius: 5px;
 }
