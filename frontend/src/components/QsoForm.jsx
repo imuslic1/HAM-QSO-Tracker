@@ -14,7 +14,7 @@ export default function QsoForm() {
     });
 
     const [error, setError] = useState("");
-
+      
     // fetch last QSO when callsign is entered
     const handleCallsignBlur = async () => {
         if (!form.callsign) return;
@@ -22,6 +22,10 @@ export default function QsoForm() {
         const data = await res.json();
         if (data.callsign) {
             setForm({ ...form, ...data, callsign: form.callsign });
+        }
+        if (data.id) {
+            const { id, ...rest } = data;
+            setForm({ ...form, ...rest, callsign: form.callsign });
         }
     };
 
@@ -45,17 +49,8 @@ export default function QsoForm() {
         await fetch("http://localhost:5000/qso", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({
-                callsign: form.callsign,
-                name: form.name,
-                qra_locator: form.qra_locator,
-                signal_report: form.signal_report,
-                channel: form.channel,
-                power: form.power,
-                device: form.device
-            })
+            body: JSON.stringify(form)
         });
-
         window.alert("QSO saved!");
         setForm({
             callsign: "",
@@ -64,7 +59,8 @@ export default function QsoForm() {
             name: "",
             device: "",
             power: "",
-            qth: ""
+            qth: "",
+            band: ""
         });
     };
 
@@ -76,7 +72,8 @@ export default function QsoForm() {
             name: "",
             device: "",
             power: "",
-            qth: ""
+            qth: "",
+            band: ""
         });
         setError("");
     };

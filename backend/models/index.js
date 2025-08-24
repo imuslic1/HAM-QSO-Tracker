@@ -20,7 +20,8 @@ const QSO = sequelize.define("QSO", {
   name: DataTypes.STRING,
   device: DataTypes.STRING,
   power: DataTypes.STRING,
-  qth: DataTypes.STRING
+  qth: DataTypes.STRING,
+  band: DataTypes.STRING
 }, {
   tableName: "qsos",
   timestamps: true,
