@@ -40,9 +40,9 @@ app.post("/qso", async (req, res) => {
 });
 
 
-app.get("/qsos", async (req, res) => {
+app.get("/qsos/all", async (req, res) => {
   try {
-    const qsos = await QSO.findAll({ order: [["createdAt", "DESC"]] });
+    const qsos = await QSO.findAll({ order: [["created_at", "DESC"]] });
     res.json(qsos);
   } catch (err) {
     res.status(500).json({ error: "Failed to fetch QSOs" });
