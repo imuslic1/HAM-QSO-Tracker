@@ -1,18 +1,20 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from "react";
+import Header from "./components/Header";
+import QsoForm from "./components/QsoForm";
+import QsoTable from "./components/QsoTable";
 
-import QsoForm from './components/QsoForm.jsx'
-
-function App() {
-  const [count, setCount] = useState(0)
+export default function App() {
+  const [page, setPage] = useState("home"); // "home" | "form" | "table"
 
   return (
-    <div>
-      <QsoForm />
-    </div>
-  )
-}
+    <div >
+      <Header setPage={setPage} />
 
-export default App
+      <main className="p-6">
+        {page === "home" && <h1 className="text-2xl font-bold">Welcome to the HAM QSO Logbook</h1>}
+        {page === "form" && <QsoForm />}
+        {page === "table" && <QsoTable />}
+      </main>
+    </div>
+  );
+}

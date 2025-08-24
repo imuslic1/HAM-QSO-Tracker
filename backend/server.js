@@ -39,5 +39,16 @@ app.post("/qso", async (req, res) => {
   }
 });
 
+
+app.get("/qsos", async (req, res) => {
+  try {
+    const qsos = await QSO.findAll({ order: [["createdAt", "DESC"]] });
+    res.json(qsos);
+  } catch (err) {
+    res.status(500).json({ error: "Failed to fetch QSOs" });
+  }
+});
+
+
 const PORT = 5000;
 app.listen(PORT, () => console.log(`🚀 Server running on port ${PORT}`));

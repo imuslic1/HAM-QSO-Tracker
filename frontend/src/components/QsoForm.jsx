@@ -87,7 +87,7 @@ export default function QsoForm() {
                 onSubmit={handleSubmit}
             >
 
-                <h1 style={{ fontWeight: "500", textAlign: "center" }}>[CALLSIGN] Ham Radio Logbook</h1>
+                <h1 style={{ fontWeight: "500", textAlign: "center" }}>QSO Entry</h1>
                 {error && <p style={{ color: "red" }}>{error}</p>}
                 {["callsign", "name", "qth", "channel", "signal_report", "device", "power", "band"].map((field) => (
                     <input
